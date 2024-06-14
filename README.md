@@ -1,6 +1,6 @@
 # frame_transformer
 
-![The network architecture of Pyraformer.](\img\Figure_1.png)
+![The network architecture of Pyraformer.](https://github.com/Dmovic/frame_transformer/tree/main/img/Figure_1.png)
 
 <center><b>Figure 1.</b> Pyraformer的网络结构</center>
 
@@ -11,7 +11,7 @@
 
 ## attention
 
-![The Pyramidal Attention Mechanism.](\img\Figure_2.png)
+![The Pyramidal Attention Mechanism.](https://github.com/Dmovic/frame_transformer/tree/main/img/Figure_2.png)
 
 如图所示，利用金字塔图以多分辨率方式描述观测时间序列的时间依赖关系。我以将金字塔图分解为两个部分：尺度间连接和尺度内连接。尺度间连接形成一棵 Cary 树，其中每个父节点有 C 个子节点。如果我们将金字塔图的最细尺度与原始时间序列的小时观测值联系起来，那么较粗尺度的节点就可以被视为时间序列的日、周甚至月特征。因此，金字塔图提供了原始时间序列的多分辨率表示。
 
@@ -128,9 +128,7 @@ Dependencies can be installed by:
 pip install -r requirements.txt
 ```
 
-![preprocess data](img\preprocess data.png)
-
-
+![preprocess data](https://github.com/Dmovic/frame_transformer/tree/main/img/preprocess data.png)
 
 #### 数据准备
 
@@ -171,11 +169,11 @@ long range forecasting
 sh scripts/Pyraformer_LR_FC.sh
 ```
 
-![training long predict](img\training long predict.png)
+![training long predict](https://github.com/Dmovic/frame_transformer/tree/main/img/training long predict.png)
 
-![long_range_main.py](img\256.png)
+![long_range_main.py](https://github.com/Dmovic/frame_transformer/tree/main/img/256.png)
 
-![[Elect]single_step_main.py -data_path -dataset elect -eval](img\[Elect]single_step_main.py -data_path -dataset elect -eval.png)
+![[Elect]single_step_main.py -data_path -dataset elect -eval](https://github.com/Dmovic/frame_transformer/tree/main/img/[Elect]single_step_main.py -data_path -dataset elect -eval.png)
 
 single step forecasting
 
@@ -183,10 +181,10 @@ single step forecasting
 sh scripts/Pyraformer_SS.sh
 ```
 
-![training short predict](img\training short predict.png)
+![training short predict](https://github.com/Dmovic/frame_transformer/tree/main/img/training short predict.png)
 
-![[flow]single_step_main.py -data_path -dataset flow -eval](img\[flow]single_step_main.py -data_path -dataset flow -eval.png)
+![[flow]single_step_main.py -data_path -dataset flow -eval](https://github.com/Dmovic/frame_transformer/tree/main/img/[flow]single_step_main.py -data_path -dataset flow -eval.png)
 
-![e256](img\e256.png)
+![e256](https://github.com/Dmovic/frame_transformer/tree/main/img/e256.png)
 
-![[wind]single_step_main.py -data_path -dataset wind -eval](img\[wind]single_step_main.py -data_path -dataset wind -eval.png)
+![[wind]single_step_main.py -data_path -dataset wind -eval](https://github.com/Dmovic/frame_transformer/tree/main/img/[wind]single_step_main.py -data_path -dataset wind -eval.png)
