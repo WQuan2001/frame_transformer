@@ -76,21 +76,22 @@ MSAdapter的API完全参照PyTorch设计，用户仅需少量修改就能轻松�
 pip install msadapter
 ```
 
-源码安装
+
+安装`mindspore`
 
 ```
-git clone https://git.openi.org.cn/OpenI/MSAdapter.git 
-cd MSAdapter 
-python setup.py install
+pip install https://ms-release.obs.cn-north-4.myhuaweicloud.com/2.3.0rc2/MindSpore/unified/x86_64/mindspore-2.3.0rc2-cp37-cp37m-linux_x86_64.whl --trusted-host ms-release.obs.cn-north-4.myhuaweicloud.com -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
-替换
+
+使用Msadapter进行迁移
+
+替换头文件部分导入内容
 
 ```python
 import torch
-import torch.nn as nn
-
-import math
+import torch.optim as optim
+from dataloader import *
 ```
 
 为
@@ -98,26 +99,51 @@ import math
 ```python
 import msadapter.pytorch as torch
 import msadapter.pytorch.nn as nn
-
-import math
+import msadapter.pytorch.optim as optim
+import mindspore as ms
+from mindspore import Parameter，nn
+from msadapter.pytorch.utils.data import *
 ```
 
+替换神经网络优化器
 
+```python
+optimizer = optim.Adam(filter(lambda x: x.requires_grad, model.parameters()), opt.lr)
+```
+
+为
+
+```python
+ms_model_parameters = [x for x in model.parameters() if x.requires_grad]
+optimizer = ms.nn.Adam(Parameters(ms_model_parameters), opt.lr)
+```
+
+替换评价指标
+
+```python
+criterion = torch.nn.MSELoss(reduction = 'None')
+```
+
+为
+
+```python
+criterion = nn.MSELoss(reduction = 'None')
+```
 
 ### 实验
 
 notice
 
-1. gpu num : writer used 4GPU for training but our device only has 1
-2. layer name : the same layer name cause para num dismatch 
+1. 原文作者在Pytorch框架下利用4块GPU进行训练，本文仅在1块GPU上复现，需要手动修正
+2. 原文作者在进行ETT1h数据集长时预测时，对神经网络层命名有误，需要重新命名确保神经元参数匹配
 
 step
 
-1. download dataset in pyraformer/data/
-2. data preprocess -pic[preprocess]
-3. training by run sh scripts/pyraformer_LR/SS -pic[training long/short] which need a long time
-4. load checkpoint : download model in pyraformer/models
-5. evaluate -pic [begin with[]]
+1. download dataset
+2. data preprocess 
+3. training 
+4. load checkpoint 
+5. evaluate
 
 #### 环境
 
