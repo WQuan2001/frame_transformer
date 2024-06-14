@@ -91,11 +91,15 @@ import torch
 import torch.nn as nn
 
 import math
+```
 
+为
+
+```python
 import msadapter.pytorch as torch
 import msadapter.pytorch.nn as nn
-import msadapter.torchvision import datasets, transforms
-import mindspore as ms
+
+import math
 ```
 
 

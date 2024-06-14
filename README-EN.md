@@ -1,9 +1,3 @@
-# Pyraformer: Low-complexity Pyramidal Attention for Long-range Time Series Modeling and Forecasting
-This is the Mindspore implementation of Pyraformer (Pyramidal Attention based Transformer) in the ICLR paper: [Pyraformer: Low-complexity Pyramidal Attention for Long-range Time Series Modeling and Forecasting](https://openreview.net/pdf?id=0EXmFzUn5I).
-
-![The network architecture of Pyraformer.](./img/Figure_1.png)
-<center><b>Figure 1.</b> The network architecture of Pyraformer.</center>
-
 ## Pyramidal Attention
 As demonstrated in Figure 2, we leverage a pyramidal graph to describe the temporal dependencies of the observed time series in a multiresolution fashion. We can decompose the pyramidal graph into two parts: the inter-scale and the intra-scale connections. The inter-scale connections form a C-ary tree, in which each parent has C children. For example, if we associate the finest scale of the pyramidal graph with hourly observations of the original time series, the nodes at coarser scales can be regarded as the daily, weekly, and even monthly features of the time series. As a consequence, the pyramidal graph offers a multiresolution representation of the original time series. Furthermore, it is easier to capture long-range dependencies (e.g., monthly dependence) in the coarser scales by simply connecting the neighboring nodes via the intra-scale connections. In other words, the coarser scales are instrumental in describing long-range correlations in a manner that is graphically far more parsimonious than could be solely captured with a single, finest scale model.
 
@@ -104,23 +98,6 @@ Below are evaluation examples:
     python single_step_main.py -data_path data/elect/ -dataset elect -eval
 
 
-
-## Citation
-
-    @inproceedings{liu2022pyraformer,
-    title={Pyraformer: Low-Complexity Pyramidal Attention for Long-Range Time Series Modeling and Forecasting},
-    author={Liu, Shizhan and Yu, Hang and Liao, Cong and Li, Jianguo and Lin, Weiyao and Liu, Alex X and Dustdar, Schahram},
-    booktitle={International Conference on Learning Representations},
-    year={2022}
-    }
-
-## Contact
-
-For any questions w.r.t. Pyraformer, please submit them to Github Issues.
-
-If you have interests in business cooperation with us or using our time-series forecasting products, please scan the QR code below and join our DingTalk customer group. A Chinese version introdution of Pyraformer and its practical applications can be found at https://mp.weixin.qq.com/s/kNvQOSEIv0itiqeN-EDKxw.
-
-<img src="./img/dingtalk.png" alt="钉钉客户群" width="200"/>
 
 
 
