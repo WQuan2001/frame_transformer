@@ -201,10 +201,6 @@ sh scripts/Pyraformer_LR_FC.sh
 
 ![training long predict](https://github.com/Dmovic/frame_transformer/blob/main/img/training%20long%20predict.png)
 
-![long_range_main.py](https://github.com/Dmovic/frame_transformer/blob/main/img/256.png)
-
-![[Elect]single_step_main.py -data_path -dataset elect -eval](https://github.com/Dmovic/frame_transformer/blob/main/img/eval.png)
-
 single step forecasting
 
 ```
@@ -213,8 +209,19 @@ sh scripts/Pyraformer_SS.sh
 
 ![training short predict](https://github.com/Dmovic/frame_transformer/blob/main/img/training%20short%20predict.png)
 
-![[flow]single_step_main.py -data_path -dataset flow -eval](https://github.com/Dmovic/frame_transformer/blob/main/img/flow.png)
+#### Eval
 
-![e256](https://github.com/Dmovic/frame_transformer/blob/main/img/e256.png)
+使用mindspore对论文结果进行复现
 
-![[wind]single_step_main.py -data_path -dataset wind -eval](https://github.com/Dmovic/frame_transformer/blob/main/img/wind.png)
+Electricity
+
+![elect](https://github.com/WQuan2001/frame_transformer/blob/main/img/eval_elec.png)
+
+ETTm1
+
+![ettm1](https://github.com/WQuan2001/frame_transformer/blob/main/img/eval_ett.png)
+
+Single
+
+![single](https://github.com/WQuan2001/frame_transformer/blob/main/img/eval_single.png)
+
